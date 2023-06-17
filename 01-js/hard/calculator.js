@@ -17,6 +17,76 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(result){
+    this.result = result;
+  }
+
+  add(a){
+    return (this.result + a);
+  }
+
+  subtract(b){
+    return this.result - b;
+  }
+
+  multiply(c){
+    return this.result * c;
+  }
+
+  divide(d){
+    return this.result / d;
+  }
+
+  clear(){
+    this.result = 0;
+  }
+
+  getResult(){
+    console.log("FINAL RESULT", this.result);
+    return this.result;
+  }
+
+  isAlphabet(character){
+    return /^[a-zA-Z]$/.test(char);
+  }
+  
+
+  calculate(inputString){
+    console.log(" Input is --- ", inputString);
+    var inputArray = inputString.split(' ').join('');
+    console.log(" Input Array -", inputArray);
+
+    var Head = inputArray[0];
+
+    if(isAlphabet(Head) == false){
+      this.result = Head;
+    }else
+      throw console.error();
+
+    for(var i = 1; i <= inputArray.length; i++){
+        var currentCharacter = inputArray[i];
+        
+        console.log("current character", currentCharacter);
+        if(currentCharacter == '+')
+          this.add(Head);
+        if(currentCharacter == '-')
+          this.subtract(Head);
+        if(currentCharacter == '*')
+          this.multiply(Head);
+        if(currentCharacter == '/'){
+          if(Head == 0)
+            throw console.error();
+          else
+            this.divide(Head);
+        }
+        if(isAlphabet(currentCharacter))
+          throw console.error();
+
+        Head = currentCharacter;
+    }
+  }
+    // console.log("Input Array --- ", inputArray);
+  }
 
 module.exports = Calculator;

@@ -9,7 +9,8 @@
 
 function isAnagram(str1, str2) {
 
-  // we can sort str1 and str2 and if they are equal, we will return it.
+  // LOGIC - we can sort str1 and str2 and if they are equal, we will return it.
+  // in JS we cannot sort strings so we converted them to array
   // sort = convert to array and then sort and convert back to string
   // In case of case sensitive input, we can convert all to lower case
 
@@ -18,7 +19,7 @@ function isAnagram(str1, str2) {
 
   // what we did
   // converted string to an array of sub strings seperated by spaces
-  // joined the substring to a single string
+  // joined the substring array to a single string
   // split elemenet by element then join all to one
   // convert all to lowercase then split all and sorted then joined back to string
 
@@ -26,6 +27,7 @@ function isAnagram(str1, str2) {
     console.log(sortedStr2);
   
     if (sortedStr1 == sortedStr2) {
+        console.log("it's TRUE tho")
         return true;
     }
     else 
